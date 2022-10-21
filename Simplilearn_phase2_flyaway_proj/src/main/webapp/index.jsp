@@ -11,7 +11,7 @@
 	<div>
 	
 		<ul>
-			<li>Search Form</li>
+			<li><a href="searchform.jsp">Search Form</a></li>
 			<li><a href="admin_login_page.jsp">Admin Login</a></li>
 		</ul>
 		
