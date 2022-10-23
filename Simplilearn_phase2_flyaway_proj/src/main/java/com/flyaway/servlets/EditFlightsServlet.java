@@ -1,10 +1,9 @@
 package com.flyaway.servlets;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
-import com.flyaway.DAO.SearchFlightsDAO;
+import com.flyaway.DAO.CreationFlightDAO;
 import com.flyaway.bean.FlightsBean;
 
 import jakarta.servlet.ServletException;
@@ -14,16 +13,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SearchFormServlet
+ * Servlet implementation class EditFlightsServlet
  */
-@WebServlet("/SearchFormServlet")
-public class SearchFormServlet extends HttpServlet {
+@WebServlet("/EditFlightsServlet")
+public class EditFlightsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchFormServlet() {
+    public EditFlightsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,15 +39,12 @@ public class SearchFormServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String date = request.getParameter("date");
-		int sourceId = Integer.parseInt(request.getParameter("source"));
-		int destinationId = Integer.parseInt(request.getParameter("destination"));
-		int numberOfPersons = Integer.parseInt(request.getParameter("persons"));
+		response.setContentType("text/html");
 		
-		List<FlightsBean> list = SearchFlightsDAO.searchFlights(date, sourceId, destinationId, numberOfPersons);
-		System.out.println(list);
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("searchresultpage.jsp").include(request, response);
+		int flightId = Integer.parseInt(request.getParameter("flightId"));
+		FlightsBean editobj = CreationFlightDAO.getFlightDetails(flightId);
+		request.setAttribute("editobj", editobj);
+		request.getRequestDispatcher("editingpage.jsp").include(request, response);
 		
 	}
 

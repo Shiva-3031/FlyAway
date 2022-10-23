@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import jakarta.servlet.http.HttpSession;
 
 public class AdminLogin {
 	
@@ -34,8 +33,6 @@ public class AdminLogin {
 		try {
 			Connection con = AdminLogin.getConnection();
 			PreparedStatement st = con.prepareStatement(query);
-			
-//			st.setString(1, username);
 			
 			rs = st.executeQuery();
 			System.out.println(rs.toString());
