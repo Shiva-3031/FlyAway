@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/mystyle.css">
 </head>
 <body>
 
@@ -21,6 +22,8 @@
 		}
 
 %>
+
+	<div class = "centering">
 
 	<form action= "CreateFlyDetailsServlet" method = "post" >
 	
@@ -59,10 +62,12 @@
 	
 	Enter the total seats: <input type = "number" min = 1 name = "seats" /><br />
 	
-	Enter the price of the each ticket: <input type = "number" name = "price" />
+	Enter the price of the each ticket: <input type = "number" name = "price" /><br />
 	<input type = "submit" name="add Flight">
 	
 	</form>
+	
+	</div>
 
 </body>
 </html>

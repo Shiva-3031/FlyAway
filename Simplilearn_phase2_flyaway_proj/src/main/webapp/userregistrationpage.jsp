@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "css/mystyle.css">
 </head>
 <body>
+<div class="centering">
 <%
 
 	if(request.getSession(false) == null){
@@ -22,8 +24,9 @@
 		Enter last name : <input type = "text" name = "lname"><br />
 		Enter email : <input type = "email" name = "email"><br />
 		Enter the number of seats: <input type = "text" name = "seats" />
-		<input type = "submit" value = "Register">
+		<br/><input type = "submit" value = "Register">
 	
 	</form>
+</div>
 </body>
 </html>

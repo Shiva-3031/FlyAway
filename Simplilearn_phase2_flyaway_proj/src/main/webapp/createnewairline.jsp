@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "css/mystyle.css">
 </head>
 <body>
+<div class="centering">
 
 <% 
 		if(request.getSession(false) == null){
@@ -20,6 +22,6 @@
 		Enter the new airline name: <input type = "text" name="newairlinename" >
 		<input type = "submit" name = "add airline">
 	</form>
-
+</div>
 </body>
 </html>

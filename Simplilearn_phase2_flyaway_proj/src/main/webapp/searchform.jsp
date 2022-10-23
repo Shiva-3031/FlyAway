@@ -9,8 +9,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "css/mystyle.css">
 </head>
 <body>
+<div class="centering">
 	<form action="SearchFormServlet"  method = "post">
 		date of travel : <input type="date" name="date" min="<%= LocalDate.now()%>" /> <br/>
 		Select the source place: 
@@ -39,6 +41,6 @@
 		number of persons : <input type = "number" min = 1 name="persons" /><br/>
 		<input type = "submit" value="search">
 	</form>
-
+</div>
 </body>
 </html>

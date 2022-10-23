@@ -10,9 +10,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "css/mystyle.css">
 </head>
 <body>
-
+<div class="centering">
 <% 
 		if(request.getSession(false) == null){
 			response.setContentType("text/html");
@@ -47,6 +48,6 @@
 	
 	
 	</table>
-
+</div>
 </body>
 </html>

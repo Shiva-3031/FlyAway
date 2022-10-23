@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "css/mystyle.css">
 </head>
 <body>
 
@@ -15,7 +16,7 @@
 		}
 
 %>
-
+<div class="centering">
 <a href="resetpassword.jsp">Reset Password</a><br/>
 
 <a href="createnewplace.jsp">Create new place</a>
@@ -23,5 +24,6 @@
 <a href="addnewflydetails.jsp">Add new Flight</a>
 <a href="showflydetails.jsp">Show Flight Details</a>
 
+</div>
 </body>
 </html>

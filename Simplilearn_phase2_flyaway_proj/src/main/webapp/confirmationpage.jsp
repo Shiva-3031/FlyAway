@@ -7,8 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "css/mystyle.css">
 </head>
 <body>
+
+<div class="centering">
 
 <%
 
@@ -72,6 +75,6 @@
 				<input type = "submit" value="Confirm"/>
 			
 			</form>
-
+</div>
 </body>
 </html>

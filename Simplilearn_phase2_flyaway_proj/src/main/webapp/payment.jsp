@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href = "css/mystyle.css">
 </head>
 <body>
-
+<div class="centering">
 <%
 
 	if(request.getSession(false) == null){
@@ -25,6 +26,6 @@
 		<input type = "submit" value ="Confirm booking" />
 	
 	</form>
-
+</div>
 </body>
 </html>
