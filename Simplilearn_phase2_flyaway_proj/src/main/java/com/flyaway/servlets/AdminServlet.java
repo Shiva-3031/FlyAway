@@ -54,7 +54,7 @@ public class AdminServlet extends HttpServlet {
 			out.println("Login successful");
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
-			session.setMaxInactiveInterval(10);
+			session.setMaxInactiveInterval(300);
 			request.getRequestDispatcher("AdminPage.jsp").include(request, response);
 		}
 		else {

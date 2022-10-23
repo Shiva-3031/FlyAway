@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import com.flyaway.DAO.AirlineDAO;
-import com.flyaway.DAO.AirlinesDAO;
 
 /**
  * Servlet implementation class CreateNewAirlineServlet
@@ -40,12 +39,19 @@ public class CreateNewAirlineServlet extends HttpServlet {
 		response.setContentType("text/html");
 		String newairlinename = request.getParameter("newairlinename");
 		
-		if(AirlineDAO.checkAndSetAirline(newairlinename)) {
-			response.getWriter().println("Added new airline");
-			request.getRequestDispatcher("AdminPage.jsp").include(request, response);
+		if(request.getSession(false) == null) {
+			response.getWriter().println("Session expired. Login again");
+			request.getRequestDispatcher("admin_login_page.jsp").include(request, response);
 		}
 		else {
-			System.out.println("This one called");
+		
+			if(AirlineDAO.checkAndSetAirline(newairlinename)) {
+				response.getWriter().println("Added new airline");
+				request.getRequestDispatcher("AdminPage.jsp").include(request, response);
+			}
+			else {
+				System.out.println("This one called");
+			}
 		}
 	}
 

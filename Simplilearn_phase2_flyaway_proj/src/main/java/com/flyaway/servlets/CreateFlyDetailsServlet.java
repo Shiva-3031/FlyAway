@@ -37,26 +37,32 @@ public class CreateFlyDetailsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		
-		int airlineId = Integer.parseInt(request.getParameter("airline"));
-		System.out.println(airlineId);
-		String date = request.getParameter("date");
-		System.out.println(date);
-		int sourceId = Integer.parseInt(request.getParameter("source"));
-		System.out.println(sourceId);
-		int destinationId = Integer.parseInt(request.getParameter("destination"));
-		System.out.println(destinationId);
-		int price = Integer.parseInt(request.getParameter("price"));
-		int seats = Integer.parseInt(request.getParameter("seats"));
-		
-		boolean result = CreationFlightDAO.creationFlight(airlineId,date,sourceId,destinationId,price, seats);
-		if(result) {
-			response.getWriter().println("Addition of the flight successful");
-			request.getRequestDispatcher("AdminPage.jsp").include(request, response);
+		if(request.getSession(false) == null) {
+			response.getWriter().println("Session expired. Login again");
+			request.getRequestDispatcher("admin_login_page.jsp").include(request, response);
 		}
 		else {
-			response.getWriter().println("Addition of the flight unsuccessful");
-			request.getRequestDispatcher("AdminPage.jsp").include(request, response);
+		
+			int airlineId = Integer.parseInt(request.getParameter("airline"));
+			System.out.println(airlineId);
+			String date = request.getParameter("date");
+			System.out.println(date);
+			int sourceId = Integer.parseInt(request.getParameter("source"));
+			System.out.println(sourceId);
+			int destinationId = Integer.parseInt(request.getParameter("destination"));
+			System.out.println(destinationId);
+			int price = Integer.parseInt(request.getParameter("price"));
+			int seats = Integer.parseInt(request.getParameter("seats"));
+			
+			boolean result = CreationFlightDAO.creationFlight(airlineId,date,sourceId,destinationId,price, seats);
+			if(result) {
+				response.getWriter().println("Addition of the flight successful");
+				request.getRequestDispatcher("AdminPage.jsp").include(request, response);
+			}
+			else {
+				response.getWriter().println("Addition of the flight unsuccessful");
+				request.getRequestDispatcher("AdminPage.jsp").include(request, response);
+			}
 		}
 		
 	}

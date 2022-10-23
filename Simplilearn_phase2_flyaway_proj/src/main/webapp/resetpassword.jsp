@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% 
+		if(request.getSession(false) == null){
+			response.setContentType("text/html");
+			request.getRequestDispatcher("admin_login_page.jsp").include(request, response);
+		}
+
+%>
 
 	<form action="ResetPasswordServlet" method = "post">
 	

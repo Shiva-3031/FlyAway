@@ -15,6 +15,10 @@ public class UserDetailsBean {
 	private String userLastName;
 	
 	private String userEmail;
+	
+	private int userSeats;
+	
+	private boolean userPayment;
 
 	public int getUserId() {
 		return userId;
@@ -47,8 +51,22 @@ public class UserDetailsBean {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
-	
+
+	public int getUserSeats() {
+		return userSeats;
+	}
+
+	public void setUserSeats(int userSeats) {
+		this.userSeats = userSeats;
+	}
+
+	public boolean getUserPayment() {
+		return userPayment;
+	}
+
+	public void setUserPayment(boolean userPayment) {
+		this.userPayment = userPayment;
+	}
 	
 
 }

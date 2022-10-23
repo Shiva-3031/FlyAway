@@ -13,6 +13,14 @@
 </head>
 <body>
 
+<% 
+		if(request.getSession(false) == null){
+			response.setContentType("text/html");
+			request.getRequestDispatcher("admin_login_page.jsp").include(request, response);
+		}
+
+%>
+
 	<table border = 1>
 	
 	<tr>
@@ -22,7 +30,6 @@
 		<th>Airlines</th>
 		<th>price</th>
 		<th>seats</th>
-		<th></th>
 	</tr>
 	
 	<%
@@ -33,7 +40,6 @@
 			out.println("<td>"+ fb.getDate()+"</td>" +"<td>"+PlaceDAO.getPlaceName(fb.getSource())+"</td>"+
 			"<td>"+PlaceDAO.getPlaceName(fb.getDestination())+"</td>"+"<td>"+AirlineDAO.getAirlineName(fb.getAirline())+"</td>"+"<td>"+
 				fb.getPrice()+"</td>"+"<td>"+fb.getAvailableSeats()+"</td>");
-			out.println("<td><form action='EditFlightsServlet' method='post'><input type='hidden' value='"+fb.getFlightsId()+"' name = 'flightId' ><input type='submit' value='Edit'></form></td>");
 			out.println("</tr>");
 		}
 	

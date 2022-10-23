@@ -2,6 +2,7 @@ package com.flyaway.DAO;
 
 import com.flyaway.bean.FlightsBean;
 import com.flyaway.bean.PlacesBean;
+import com.flyaway.bean.UserDetailsBean;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -117,6 +118,28 @@ public class CreationFlightDAO {
 			
 		}
 		return ab;
+	}
+	
+	public static boolean updateSeatsFlights(FlightsBean obj,UserDetailsBean ub) {
+		
+		Connection con = CreationFlightDAO.getConnection();
+		
+		int totalseats = obj.getAvailableSeats();
+		int bookedseats = ub.getUserSeats();
+		int updatedseats = totalseats - bookedseats;
+		String query = "UPDATE flights SET seats = ? WHERE flightId = ?";
+		try {
+			PreparedStatement stmt = con.prepareStatement(query);
+			stmt.setInt(1, updatedseats);
+			stmt.setInt(2, obj.getFlightsId());
+			
+			return stmt.executeUpdate() == 1;
+		}
+		catch(Exception e) {
+			
+		}
+		return false;
+		
 	}
 	
 }

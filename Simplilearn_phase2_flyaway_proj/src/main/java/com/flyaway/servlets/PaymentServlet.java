@@ -6,22 +6,26 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
+import com.flyaway.DAO.BookingFlightDAO;
+import com.flyaway.DAO.CreationFlightDAO;
 import com.flyaway.DAO.UserDetailsDAO;
+import com.flyaway.bean.FlightsBean;
 import com.flyaway.bean.UserDetailsBean;
 
+import jakarta.servlet.http.HttpSession;
+
 /**
- * Servlet implementation class RegisterUserDetailsServlet
+ * Servlet implementation class PaymentServlet
  */
-@WebServlet("/RegisterUserDetailsServlet")
-public class RegisterUserDetailsServlet extends HttpServlet {
+@WebServlet("/PaymentServlet")
+public class PaymentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterUserDetailsServlet() {
+    public PaymentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,23 +43,31 @@ public class RegisterUserDetailsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		HttpSession session = request.getSession(false);
 		
+		HttpSession session = (HttpSession) request.getSession(false);
 		if(session == null) {
 			response.getWriter().println("Session expired");
 			request.getRequestDispatcher("searchform.jsp").include(request, response);
 		}
 		else {
 		
-			System.out.println(session.getAttribute("flightObj"));
-			String fname = request.getParameter("fname");
-			String lname = request.getParameter("lname");
-			String email = request.getParameter("email");
-			String seats = request.getParameter("seats");
-	//		request.setAttribute("flightId", flightId);
-			UserDetailsBean ub = UserDetailsDAO.createNewUserBean(fname, lname, email, seats);
-			session.setAttribute("userDetails", ub);
-			request.getRequestDispatcher("confirmationpage.jsp").include(request, response);
+			FlightsBean flightObj = (FlightsBean) session.getAttribute("flightObj");
+			
+			UserDetailsBean ub = (UserDetailsBean) session.getAttribute("userDetails");
+			ub.setUserPayment(true);
+			boolean result = UserDetailsDAO.createNewUser(ub);
+			System.out.println(result);
+			int bookingId = BookingFlightDAO.createNewFlightBooking(ub,flightObj);
+			System.out.println(bookingId);
+			if( result && bookingId  !=  0 && CreationFlightDAO.updateSeatsFlights(flightObj,ub)) {
+				response.getWriter().println("Booking successful");
+				response.getWriter().println("Booking Id is "+bookingId);
+				request.getRequestDispatcher("successpage.jsp").include(request, response);
+			}
+			else {
+				response.getWriter().println("Booking unsuccessful");
+				request.getRequestDispatcher("successpage.jsp").include(request, response);
+			}
 		}
 	}
 

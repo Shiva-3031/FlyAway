@@ -39,7 +39,8 @@
 			<td>${li.price }</td>
 			<td>${li.availableSeats }</td>
 			<td>
-			<form action = "userregistrationpage.jsp" method = 'post'>
+			<form action = "UserRegistrationServlet" method = "post">
+			<!-- <form action = "userregistrationpage.jsp" method = 'post'> -->
 				<input type = "hidden" value = "${li.flightsId}" name="flightId"/>
 				<input type = "submit" value="Book"/>
 			

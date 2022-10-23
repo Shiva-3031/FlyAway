@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<% 
+		if(request.getSession(false) == null){
+			response.setContentType("text/html");
+			request.getRequestDispatcher("admin_login_page.jsp").include(request, response);
+		}
+
+%>
+
 <a href="resetpassword.jsp">Reset Password</a><br/>
 
 <a href="createnewplace.jsp">Create new place</a>

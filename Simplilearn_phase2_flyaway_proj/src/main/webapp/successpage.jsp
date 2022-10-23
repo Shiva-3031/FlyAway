@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <%
 
 	if(request.getSession(false) == null){
@@ -17,13 +18,10 @@
 
 %>
 
-	<form action = "RegisterUserDetailsServlet" method = "post">
-		Enter first name :<input type  ="text" name = "fname"><br/>
-		Enter last name : <input type = "text" name = "lname"><br />
-		Enter email : <input type = "email" name = "email"><br />
-		Enter the number of seats: <input type = "text" name = "seats" />
-		<input type = "submit" value = "Register">
+	<form action = "RedirectServlet">
 	
+		<input type = "submit" value = "Home">
 	</form>
+
 </body>
 </html>
