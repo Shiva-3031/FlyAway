@@ -42,7 +42,7 @@ public class UserRegistrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
-		
+		try {
 		HttpSession session = (HttpSession) request.getSession();
 		int flightId = Integer.parseInt(request.getParameter("flightId"));
 		
@@ -53,7 +53,11 @@ public class UserRegistrationServlet extends HttpServlet {
 		session.setAttribute("flightObj", flightObj);
 		session.setMaxInactiveInterval(300);
 		request.getRequestDispatcher("userregistrationpage.jsp").include(request, response);
-		
+		}
+		catch(Throwable e) {
+			System.out.println("Hello");
+			request.getRequestDispatcher("errorpage.jsp").forward(request, response);
+		}
 		
 	}
 

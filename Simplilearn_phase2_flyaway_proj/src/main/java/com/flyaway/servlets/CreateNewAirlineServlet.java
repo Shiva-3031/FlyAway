@@ -37,6 +37,7 @@ public class CreateNewAirlineServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		try {
 		String newairlinename = request.getParameter("newairlinename");
 		
 		if(request.getSession(false) == null) {
@@ -52,6 +53,11 @@ public class CreateNewAirlineServlet extends HttpServlet {
 			else {
 				System.out.println("This one called");
 			}
+		}
+		}
+		catch(Throwable e) {
+			System.out.println("Hello");
+			request.getRequestDispatcher("errorpage.jsp").forward(request, response);
 		}
 	}
 

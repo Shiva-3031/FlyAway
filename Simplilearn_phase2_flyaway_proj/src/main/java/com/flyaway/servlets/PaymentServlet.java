@@ -43,7 +43,7 @@ public class PaymentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		
+		try {
 		HttpSession session = (HttpSession) request.getSession(false);
 		if(session == null) {
 			response.getWriter().println("Session expired");
@@ -68,6 +68,11 @@ public class PaymentServlet extends HttpServlet {
 				response.getWriter().println("<center>Booking unsuccessful</center>");
 				request.getRequestDispatcher("successpage.jsp").include(request, response);
 			}
+		}
+		}
+		catch(Throwable e) {
+			System.out.println("Hello");
+			request.getRequestDispatcher("errorpage.jsp").forward(request, response);
 		}
 	}
 

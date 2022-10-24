@@ -18,10 +18,9 @@
 
 %>
 <center>
-	<form action = "RedirectServlet">
-	
+	<form action = "index.jsp" method="post">
 		<input type = "submit" value = "Home">
 	</form>
-	</center>
+</center>
 </body>
 </html>

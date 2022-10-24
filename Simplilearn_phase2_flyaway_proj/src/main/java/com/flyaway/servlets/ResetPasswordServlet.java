@@ -37,7 +37,7 @@ public class ResetPasswordServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		
+		try {
 		if(request.getSession(false) == null) {
 			response.getWriter().println("Session expired. Login again");
 			request.getRequestDispatcher("admin_login_page.jsp").include(request, response);
@@ -64,6 +64,11 @@ public class ResetPasswordServlet extends HttpServlet {
 				response.getWriter().println("Password mismatch");
 				request.getRequestDispatcher("resetpassword.jsp").include(request, response);
 			}
+		}
+		}
+		catch(Throwable e) {
+			System.out.println("Hello");
+			request.getRequestDispatcher("errorpage.jsp").forward(request, response);
 		}
 	}
 

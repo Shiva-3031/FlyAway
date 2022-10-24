@@ -41,6 +41,8 @@ public class AdminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
+		
+		try {
 		String username = request.getParameter("admin_username");
 		String password = request.getParameter("admin_password");
 		
@@ -60,6 +62,11 @@ public class AdminServlet extends HttpServlet {
 		else {
 			out.println("Invalid Login credentials");
 			request.getRequestDispatcher("admin_login_page.jsp").include(request, response);
+		}
+		}
+		catch(Throwable e) {
+			System.out.println("Hello");
+			request.getRequestDispatcher("errorpage.jsp").forward(request, response);
 		}
 		
 	}

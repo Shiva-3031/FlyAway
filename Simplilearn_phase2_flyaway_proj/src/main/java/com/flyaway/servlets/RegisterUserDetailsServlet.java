@@ -39,6 +39,7 @@ public class RegisterUserDetailsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		try {
 		HttpSession session = request.getSession(false);
 		
 		if(session == null) {
@@ -56,6 +57,11 @@ public class RegisterUserDetailsServlet extends HttpServlet {
 			UserDetailsBean ub = UserDetailsDAO.createNewUserBean(fname, lname, email, seats);
 			session.setAttribute("userDetails", ub);
 			request.getRequestDispatcher("confirmationpage.jsp").include(request, response);
+		}
+		}
+		catch(Throwable e) {
+			System.out.println("Hello");
+			request.getRequestDispatcher("errorpage.jsp").forward(request, response);
 		}
 	}
 

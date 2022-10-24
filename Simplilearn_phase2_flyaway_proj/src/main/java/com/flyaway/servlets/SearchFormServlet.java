@@ -41,15 +41,21 @@ public class SearchFormServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		String date = request.getParameter("date");
-		int sourceId = Integer.parseInt(request.getParameter("source"));
-		int destinationId = Integer.parseInt(request.getParameter("destination"));
-		int numberOfPersons = Integer.parseInt(request.getParameter("persons"));
-		
-		List<FlightsBean> list = SearchFlightsDAO.searchFlights(date, sourceId, destinationId, numberOfPersons);
-		System.out.println(list);
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("searchresultpage.jsp").include(request, response);
+		try {
+			String date = request.getParameter("date");
+			int sourceId = Integer.parseInt(request.getParameter("source"));
+			int destinationId = Integer.parseInt(request.getParameter("destination"));
+			int numberOfPersons = Integer.parseInt(request.getParameter("persons"));
+			
+			List<FlightsBean> list = SearchFlightsDAO.searchFlights(date, sourceId, destinationId, numberOfPersons);
+			System.out.println(list);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("searchresultpage.jsp").include(request, response);
+		}
+		catch(Throwable e) {
+			System.out.println("Hello");
+			request.getRequestDispatcher("errorpage.jsp").forward(request, response);
+		}
 		
 	}
 
