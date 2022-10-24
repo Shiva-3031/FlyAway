@@ -8,7 +8,6 @@
 <link rel="stylesheet" href = "css/mystyle.css">
 </head>
 <body>
-<div class="centering">
 <%
 
 	if(request.getSession(false) == null){
@@ -18,11 +17,11 @@
 	}
 
 %>
-
+<center>
 	<form action = "RedirectServlet">
 	
 		<input type = "submit" value = "Home">
 	</form>
-</div>
+	</center>
 </body>
 </html>

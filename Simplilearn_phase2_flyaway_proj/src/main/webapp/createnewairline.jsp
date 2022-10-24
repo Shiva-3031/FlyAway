@@ -17,11 +17,14 @@
 		}
 
 %>
-
-	<form action = "CreateNewAirlineServlet" method= "post">
+<center><h3>Create New Airline</h3></center>
+<%@ include file="homepageredirect.jsp" %>
+<div style = "border:solid black 2px; width: 100%;padding:2em">
+	<form style="width:100%;text-align:center;" action = "CreateNewAirlineServlet" method= "post">
 		Enter the new airline name: <input type = "text" name="newairlinename" >
 		<input type = "submit" name = "add airline">
 	</form>
+</div>
 </div>
 </body>
 </html>

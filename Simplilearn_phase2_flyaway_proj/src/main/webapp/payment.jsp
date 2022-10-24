@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isErrorPage="false" errorpage = "errorpage.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,13 +19,18 @@
 
 %>
 
-	amount: ${flightObj.price * userDetails.getUserSeats() }
+<center><h3>Payment Amount</h3></center>
+<%@ include file="homepageredirect.jsp" %>
+<div style = "border:solid black 2px; width: 100%;padding:2em">
+
+	<center>amount: ${flightObj.price * userDetails.getUserSeats() }</center>
 	
-	<form action="PaymentServlet" method = "post">
+	<form style="margin:1em 0 0 ;width:100%;text-align:center;" action="PaymentServlet" method = "post">
 	
-		<input type = "submit" value ="Confirm booking" />
+		<input style="width:50%;" type = "submit" value ="Confirm booking" />
 	
 	</form>
+	</div>
 </div>
 </body>
 </html>

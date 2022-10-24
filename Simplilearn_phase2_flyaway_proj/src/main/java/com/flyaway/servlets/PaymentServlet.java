@@ -60,12 +60,12 @@ public class PaymentServlet extends HttpServlet {
 			int bookingId = BookingFlightDAO.createNewFlightBooking(ub,flightObj);
 			System.out.println(bookingId);
 			if( result && bookingId  !=  0 && CreationFlightDAO.updateSeatsFlights(flightObj,ub)) {
-				response.getWriter().println("Booking successful");
-				response.getWriter().println("Booking Id is "+bookingId);
+				response.getWriter().println("<center>Booking successful</center>");
+				response.getWriter().println("<center>Booking Id is "+bookingId+"</center>");
 				request.getRequestDispatcher("successpage.jsp").include(request, response);
 			}
 			else {
-				response.getWriter().println("Booking unsuccessful");
+				response.getWriter().println("<center>Booking unsuccessful</center>");
 				request.getRequestDispatcher("successpage.jsp").include(request, response);
 			}
 		}

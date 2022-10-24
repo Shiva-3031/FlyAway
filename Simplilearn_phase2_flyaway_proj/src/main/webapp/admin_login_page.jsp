@@ -10,12 +10,15 @@
 <body>
 
 	<div class="centering">
-		<form action = "AdminServlet" method = "post">
+	<center><h3>Admin Login Page</h3></center>
+	<div style = "border:solid black 2px; width: 100%;padding:2em" class="innerclass">
+		<form style="text-align:center;" action = "AdminServlet" method = "post">
 			<label>User name: </label><input type="text" name="admin_username" />
 			<br />
 			<label>Password: </label><input type = "password" name = "admin_password" /><br />
-			<input type ="submit" value ="Login" />
+			<input style="margin:1em;" type ="submit" value ="Login" />
 		</form>
+		</div>
 	</div>
 
 </body>

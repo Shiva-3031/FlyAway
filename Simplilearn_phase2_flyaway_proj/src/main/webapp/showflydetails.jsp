@@ -22,7 +22,11 @@
 
 %>
 
-	<table border = 1>
+<center><h3>Flight Details</h3></center>
+<%@ include file="homepageredirect.jsp" %>
+<div style = "border:solid black 2px; width: 100%;padding:2em">
+
+	<table style="width:100%;" border = 1>
 	
 	<tr>
 		<th>Date</th>

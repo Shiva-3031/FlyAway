@@ -17,13 +17,24 @@
 
 %>
 <div class="centering">
-<a href="resetpassword.jsp">Reset Password</a><br/>
-
-<a href="createnewplace.jsp">Create new place</a>
-<a href="createnewairline.jsp">Create new Airline</a>
-<a href="addnewflydetails.jsp">Add new Flight</a>
-<a href="showflydetails.jsp">Show Flight Details</a>
-
+<center><h3>Dashboard</h3></center>
+<%@include file="homepageredirect.jsp" %>
+<div style = "border:solid black 2px; width: 100%;padding:2em" class="innerclass">
+<table style="width:100%;">
+<tr>
+<td colspan=3></td>
+<td style="border:solid black 2px;text-align:center;padding:0.25em;"><a " href="resetpassword.jsp">Reset Password</a></td>
+</tr>
+<td style="border:solid black 2px;text-align:center;padding:0.25em;">
+<a href="createnewplace.jsp">Create new place</a></td>
+<td style="border:solid black 2px;text-align:center;padding:0.25em;">
+<a href="createnewairline.jsp">Create new Airline</a></td>
+<td style="border:solid black 2px;text-align:center;padding:0.25em;">
+<a href="addnewflydetails.jsp">Add new Flight</a></td>
+<td style="border:solid black 2px;text-align:center;padding:0.25em;">
+<a href="showflydetails.jsp">Show Flight Details</a></td>
+</table>
+</div>
 </div>
 </body>
 </html>

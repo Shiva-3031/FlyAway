@@ -23,9 +23,14 @@
 
 %>
 
+<center><h3>Registration Page</h3></center>
+<%@ include file="homepageredirect.jsp" %>
+<div style = "border:solid black 2px; width: 100%;padding:2em">
+
 <jsp:useBean id="flights" class = "com.flyaway.DAO.CreationFlightDAO"></jsp:useBean>
 <%-- ${flights.getFlightDetails(request.getAttribute("flightId")).get } --%>
-<table border = 1>
+<center> <h3 style = "color:blue;">Flight Details</h3></center>
+<table style="width:100%;text-align:center;">
 	
 	<tr>
 		<th>Date</th>
@@ -49,9 +54,8 @@
 	
 	
 	</table><br/>
-	
-	UserDetails:<br/>
-	<table>
+	<center><h3 style="color:blue;">User Details</h3></center>
+	<table style="width:100%;text-align:center;">
 	
 		<tr>
 		
@@ -71,10 +75,11 @@
 	</table>
 	
 	
-	<form action = "payment.jsp" method = "post">
-				<input type = "submit" value="Confirm"/>
+	<form style="margin:2em 0 0 ;text-align:center;"action = "payment.jsp" method = "post">
+				<input style="width:50%;text-align:center;" type = "submit" value="Confirm"/>
 			
 			</form>
+			</div>
 </div>
 </body>
 </html>

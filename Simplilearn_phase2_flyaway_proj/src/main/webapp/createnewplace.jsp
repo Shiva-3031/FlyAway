@@ -17,12 +17,16 @@
 	}
 		
 %>
+<center><h3>New Place Creation</h3></center>
+<%@ include file="homepageredirect.jsp" %>
+<div style = "border:solid black 2px; width: 100%;padding:2em">
 
-	<form action="CreateNewPlaceServlet" method = "post">
+	<form style = "width:100%;text-align:center;" action="CreateNewPlaceServlet" method = "post">
 	
 		Enter the new place name: <input type= "text" name= "newplacename">
 		<input type = "submit" value ="add">
 	</form>
+</div>
 </div>
 </body>
 </html>

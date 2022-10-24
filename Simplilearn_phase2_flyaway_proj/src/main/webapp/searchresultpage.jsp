@@ -18,7 +18,12 @@
 </head>
 <body>
 <div class="centering">
-	<table border = 1>
+	<center><h3>Flights Details</h3></center>
+<%@ include file="homepageredirect.jsp" %>
+<div style = "border:solid black 2px; width: 100%;padding:2em">
+	<c:choose>
+	<c:when test="${!empty list}">
+	<table style="width:100%;" border = 1>
 	
 	<tr>
 		<th>Date</th>
@@ -52,6 +57,12 @@
 	</c:forEach>
 	
 	</table>
+	</c:when>
+	<c:when test="${empty list}">
+		No result found.
+	</c:when>
+	</c:choose>
+	</div>
 </div>
 </body>
 </html>

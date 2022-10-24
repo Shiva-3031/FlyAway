@@ -22,25 +22,31 @@
 		}
 
 %>
-
 	<div class = "centering">
+	<center><h3>New Flight Addition</h3></center>
+<%@ include file="homepageredirect.jsp" %>
+<div style = "border:solid black 2px; width: 100%;padding:2em">
 
-	<form action= "CreateFlyDetailsServlet" method = "post" >
-	
-	Select Date:
-	<input type = "date" name = "date" min= "<%= LocalDate.now() %>" /><br />
-	
-	Select the airline:
-	<select name= "airline">
+	<form style="width:100%;text-align:center;" action= "CreateFlyDetailsServlet" method = "post" >
+	<table style="width:100%">
+	<tr>
+	<td>Select Date:</td>
+	<td><input style="width:100%;text-align:center;" type = "date" name = "date" min= "<%= LocalDate.now() %>" /></td>
+	</tr>
+	<tr>
+	<td>Select the airline:</td>
+	<td><select name= "airline" style="width:100%;text-align:center;">
 	<% 
 		List<AirlinesBean> list = AirlineDAO.airlinesList();
 		for(AirlinesBean ab:list){
 			out.println("<option value = "+ ab.getAirlineId()+" > "+ab.getAirlineName()+" </option>");
 		}
 	%>
-	</select><br/>
-	
-	Select the source place: <select name = "source">
+	</select></td>
+	</tr>
+	<tr>
+	<td>
+	Select the source place:</td><td> <select style="width:100%;text-align:center;" name = "source">
 	<% 
 		List<PlacesBean> placelist = PlaceDAO.placesList();
 		for(PlacesBean ab:placelist){
@@ -48,9 +54,10 @@
 		}
 	%>
 	
-	</select><br />
-	
-	Select the destination place: <select name = "destination">
+	</select></td>
+	</tr>
+	<tr>
+	<td>Select the destination place:</td><td> <select style="width:100%;text-align:center;" name = "destination">
 	<% 
 		List<PlacesBean> placedestinationlist = PlaceDAO.placesList();
 		for(PlacesBean ab:placedestinationlist){
@@ -58,13 +65,19 @@
 		}
 	%>
 	
-	</select><br />
+	</select></td>
+	</tr>
+	<tr>
+	<td>
+	Enter the total seats:</td><td> <input style="width:100%;text-align:center;" type = "number" min = 1 name = "seats" /></td>
+	</tr>
+	<tr>
+	<td>Enter the price of the each ticket: </td><td><input style="width:100%;text-align:center;" type = "number" name = "price" /></td>
+	</tr>
+	<tr>
+	<td colspan=2><input style="width:100%;text-align:center;" type = "submit" name="add Flight"></td>
 	
-	Enter the total seats: <input type = "number" min = 1 name = "seats" /><br />
-	
-	Enter the price of the each ticket: <input type = "number" name = "price" /><br />
-	<input type = "submit" name="add Flight">
-	
+	</table>
 	</form>
 	
 	</div>

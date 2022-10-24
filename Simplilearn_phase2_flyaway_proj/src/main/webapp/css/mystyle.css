@@ -17,9 +17,41 @@ html, body {
 	
 }
 
+.innerclass{
+	border:solid black 2px; 
+	padding:2em;
+	width:100%;
+}
+
 a {
 	text-decoration: none;
 }
 ul {
 	list-style:none;
 }
+ul li{
+	padding:1em;
+	text-align:center;
+}
+ul li a{
+	
+	border:solid blue 2px;
+	padding:0.5em;
+	background-color:black;
+	color:white;
+}
+
+ul li a:hover{
+	background-color:white;
+	color:black;
+}
+
+th, td{
+	padding:5px;
+}
+
+h3{
+	color:red;
+}
+
+
