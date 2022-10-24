@@ -11,6 +11,7 @@
 
 	<div class="centering">
 	<center><h3>Admin Login Page</h3></center>
+	<%@ include file = "homepageredirect.jsp" %>
 	<div style = "border:solid black 2px; width: 100%;padding:2em" class="innerclass">
 		<form style="text-align:center;" action = "AdminServlet" method = "post">
 			<label>User name: </label><input type="text" name="admin_username" />
