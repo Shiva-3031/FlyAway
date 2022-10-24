@@ -51,7 +51,7 @@
 		</select></td>
 		</tr>
 		<tr>
-		<td style="text-align:center;">Number of seats:</td><td><input style="width:100%;" type ="text" name= "persons" />
+		<td style="text-align:center;">Number of seats:</td><td><input style="width:100%;" type ="text" name= "persons" required/>
 		<tr>
 		<td colspan = 2><input type = "submit" value="search" style="width:100%;background-color:rgb(100,170,255);padding:0.25em 0;margin:0.2em 0 0;"></td>
 		</tr>

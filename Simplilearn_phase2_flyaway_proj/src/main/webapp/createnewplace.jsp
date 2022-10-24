@@ -23,7 +23,7 @@
 
 	<form style = "width:100%;text-align:center;" action="CreateNewPlaceServlet" method = "post">
 	
-		Enter the new place name: <input type= "text" name= "newplacename">
+		Enter the new place name: <input type= "text" name= "newplacename" required>
 		<input type = "submit" value ="add">
 	</form>
 </div>

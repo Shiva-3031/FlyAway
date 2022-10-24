@@ -14,9 +14,9 @@
 	<%@ include file = "homepageredirect.jsp" %>
 	<div style = "border:solid black 2px; width: 100%;padding:2em" class="innerclass">
 		<form style="text-align:center;" action = "AdminServlet" method = "post">
-			<label>User name: </label><input type="text" name="admin_username" />
+			<label>User name: </label><input type="text" name="admin_username" required/>
 			<br />
-			<label>Password: </label><input type = "password" name = "admin_password" /><br />
+			<label>Password: </label><input type = "password" name = "admin_password" required /><br />
 			<input style="margin:1em;" type ="submit" value ="Login" />
 		</form>
 		</div>

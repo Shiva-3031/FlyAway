@@ -21,7 +21,7 @@
 <%@ include file="homepageredirect.jsp" %>
 <div style = "border:solid black 2px; width: 100%;padding:2em">
 	<form style="width:100%;text-align:center;" action = "CreateNewAirlineServlet" method= "post">
-		Enter the new airline name: <input type = "text" name="newairlinename" >
+		Enter the new airline name: <input type = "text" name="newairlinename" required>
 		<input type = "submit" name = "add airline">
 	</form>
 </div>

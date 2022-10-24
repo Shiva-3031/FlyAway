@@ -31,11 +31,11 @@
 	<table style="width:100%">
 	<tr>
 	<td>Select Date:</td>
-	<td><input style="width:100%;text-align:center;" type = "date" name = "date" min= "<%= LocalDate.now() %>" /></td>
+	<td><input style="width:100%;text-align:center;" type = "date" name = "date" min= "<%= LocalDate.now() %>" required/></td>
 	</tr>
 	<tr>
 	<td>Select the airline:</td>
-	<td><select name= "airline" style="width:100%;text-align:center;">
+	<td><select name= "airline" style="width:100%;text-align:center;" required>
 	<% 
 		List<AirlinesBean> list = AirlineDAO.airlinesList();
 		for(AirlinesBean ab:list){
@@ -46,7 +46,7 @@
 	</tr>
 	<tr>
 	<td>
-	Select the source place:</td><td> <select style="width:100%;text-align:center;" name = "source">
+	Select the source place:</td><td> <select style="width:100%;text-align:center;" name = "source" required>
 	<% 
 		List<PlacesBean> placelist = PlaceDAO.placesList();
 		for(PlacesBean ab:placelist){
@@ -57,7 +57,7 @@
 	</select></td>
 	</tr>
 	<tr>
-	<td>Select the destination place:</td><td> <select style="width:100%;text-align:center;" name = "destination">
+	<td>Select the destination place:</td><td> <select style="width:100%;text-align:center;" name = "destination" required>
 	<% 
 		List<PlacesBean> placedestinationlist = PlaceDAO.placesList();
 		for(PlacesBean ab:placedestinationlist){
@@ -69,10 +69,10 @@
 	</tr>
 	<tr>
 	<td>
-	Enter the total seats:</td><td> <input style="width:100%;text-align:center;" type = "number" min = 1 name = "seats" /></td>
+	Enter the total seats:</td><td> <input style="width:100%;text-align:center;" type = "number" min = 1 name = "seats" required/></td>
 	</tr>
 	<tr>
-	<td>Enter the price of the each ticket: </td><td><input style="width:100%;text-align:center;" type = "number" name = "price" /></td>
+	<td>Enter the price of the each ticket: </td><td><input style="width:100%;text-align:center;" type = "number" name = "price" required/></td>
 	</tr>
 	<tr>
 	<td colspan=2><input style="width:100%;text-align:center;" type = "submit" name="add Flight"></td>
