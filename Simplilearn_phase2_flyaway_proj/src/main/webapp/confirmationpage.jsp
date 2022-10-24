@@ -1,7 +1,7 @@
 <%@page import="com.flyaway.bean.FlightsBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" errorPage="errorpage.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
